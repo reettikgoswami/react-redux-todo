@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import {TiTick} from "react-icons/ti";
+
 import { deleteTodoAction, toggleTodoAction } from "./store/action";
+
+
 
 const Todos = (props) => {
   function handleDelete(id) {
@@ -17,10 +21,13 @@ const Todos = (props) => {
           <li key={todo.id}>
             <input
               type="checkbox"
+              id = {todo.id}
               onChange={() => toggleTodo(todo.id)}
               checked={todo.isDone}
             />
-            <p>{todo.text}</p>
+            <label for={todo.id}><TiTick className={todo.isDone ? "":"tick"} /></label>
+
+            <p className={todo.isDone ? "linethrough":""}>{todo.text}</p>
             <span onClick={() => handleDelete(todo.id)}>&#10005;</span>
           </li>
         );
