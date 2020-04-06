@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Todos from "./Todos";
 import Footer from "./Footer";
-import { addTodoAction } from "./store/action";
+import { addTodoAction , toggleAll} from "./store/action";
 
 import {FaChevronDown} from "react-icons/fa";
 
@@ -22,6 +22,9 @@ class App extends React.Component {
     this.setState({ todoInput: "" });
     }
   };
+  handleAllToggle=()=>{
+    this.props.dispatch(toggleAll());
+  }
 
   render() {
     return (
@@ -30,7 +33,7 @@ class App extends React.Component {
       <div className="container">
      <div className="header">
      <div className="flex">
-       <div className="toggle_img_container">
+       <div className="toggle_img_container" onClick={this.handleAllToggle} >
          <FaChevronDown/>
        </div>
        <input

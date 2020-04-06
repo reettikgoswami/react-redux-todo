@@ -6,7 +6,8 @@ import {
   TOGGLE_TODO,
   CHANGE_TAB,
   DELETE_TODO,
-  CLEAR_COMPLETE
+  CLEAR_COMPLETE,
+  TOGGLE_ALL,
 } from "../types";
 let initialState = JSON.parse(localStorage.getItem("myTodos")) || {
   allTodos: [],
@@ -53,6 +54,24 @@ export default function todoReducer(state = initialState, action) {
          ...state,
          allTodos : state.allTodos.filter((todo)=> !todo.isDone)
        } 
+      case TOGGLE_ALL:
+       
+      let newTodoList = [];
+      if(state.allTodos.filter((todo)=> todo.isDone).length === state.allTodos.length ){
+       newTodoList = state.allTodos.map((todo)=>{
+         todo.isDone = false;
+         return todo;
+       });
+      }else{
+        newTodoList = state.allTodos.map((todo)=>{
+          todo.isDone = true;
+          return todo;
+      })
+    }
+        return {
+       ...state,
+       allTodos : newTodoList
+        } 
     default:
       return state;
   }
