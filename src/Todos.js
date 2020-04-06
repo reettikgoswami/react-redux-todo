@@ -21,7 +21,7 @@ const Todos = (props) => {
               checked={todo.isDone}
             />
             <p>{todo.text}</p>
-            <span onClick={() => handleDelete(todo.id)}>&#x2716;</span>
+            <span onClick={() => handleDelete(todo.id)}>&#10005;</span>
           </li>
         );
       })}

@@ -4,6 +4,8 @@ import Todos from "./Todos";
 import Footer from "./Footer";
 import { addTodoAction } from "./store/action";
 
+import {FaChevronDown} from "react-icons/fa";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class App extends React.Component {
     this.setState({ todoInput: event.target.value });
   };
   addTodo = (event) => {
-    if(event.keyCode === 13){
+    if(event.keyCode === 13 && this.state.todoInput.trim()){
     this.props.dispatch(addTodoAction(this.state.todoInput));
     this.setState({ todoInput: "" });
     }
@@ -29,6 +31,7 @@ class App extends React.Component {
      <div className="header">
      <div className="flex">
        <div className="toggle_img_container">
+         <FaChevronDown/>
        </div>
        <input
          type="text"
