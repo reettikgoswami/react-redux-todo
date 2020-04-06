@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { connect } from "react-redux";
+import Todos from "./Todos";
+import Footer from "./Footer";
+import { addTodoAction } from "./store/action";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todoInput: "",
+    };
+  }
+  handleAddTodo = (event) => {
+    this.setState({ todoInput: event.target.value });
+  };
+  addTodo = (event) => {
+    if(event.keyCode === 13){
+    this.props.dispatch(addTodoAction(this.state.todoInput));
+    this.setState({ todoInput: "" });
+    }
+  };
+
+  render() {
+    return (
+      <>
+      <h1 className="todo_heading">todos</h1>
+      <div className="container">
+     <div className="header">
+     <div className="flex">
+       <div className="toggle_img_container">
+       </div>
+       <input
+         type="text"
+         id="input_todo"
+         value={this.state.todoInput}
+         onChange={this.handleAddTodo}
+         onKeyDown={this.addTodo}
+        placeholder="What needs to be done?"
+      />
     </div>
-  );
+    </div> 
+        <Todos />
+        <Footer />
+      </div>
+      </>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { allTodos: state.allTodos };
+}
+
+export default connect(mapStateToProps)(App);
+

@@ -1,0 +1,191 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* style */
+
+body{
+	font-family: Helvetica;
+	background-color: #f5f5f5;
+	box-sizing: border-box;
+	color: #4d4d4d;
+}
+.flex{
+	display: flex;
+	align-items: center;
+}
+
+
+input:checked + p {
+	text-decoration: line-through;
+	color: #d9d9d9;
+}
+
+li{
+  display: flex;
+}
+
+.todo_heading{
+ text-align: center;
+ color: rgba(175, 47, 47, 0.15);
+ font-size: 80px;
+ /* line-height: 19.6px; */
+ margin-top: 45px;
+}
+
+.container{
+ max-width: 550px;
+ background-color: white;
+ margin:  0 auto;
+}
+
+.header{
+	padding: 12px 12px 12px 60px;
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	position: relative;
+	height: 33px;
+	line-height: 33.6px;
+}
+input[type=text]{
+  border: none;
+	width: 100%;
+	height: 100%;
+	line-height: 1.4;
+	padding: 6px;
+	cursor: text;
+	font: 400 20px "Helvetica Neue";
+}
+input:focus{
+	outline: none;
+}
+input::placeholder{
+	padding-left: 10px;
+	color: rgb(139, 139, 139);
+}
+
+li{
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 11px 11px 11px 60px;
+}
+
+input[type=checkbox]{
+	position: absolute;
+	left: 18px;
+	top: 18px;
+	cursor: pointer;
+}
+li span{
+	position: absolute;
+	right: 28px;
+	top: 18px;
+	cursor: pointer;
+	font-size: 20px;
+}
+li p{
+	padding-left: 10px;
+	color: rgb(77, 77, 77);
+	font-size: 20px;
+	line-height: 1.4;
+	font-family: "Helvetica Neue";
+	font-weight: 400;
+}
+
+
+.footer {
+	/* display: none; */
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
+		0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
+		0 17px 2px -6px rgba(0, 0, 0, 0.2);
+	}
+.footer_strip {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* width: 500px; */
+	color: #777;
+	padding: 10px 38px;
+	background-color: #fff;
+	height: 20px;
+	text-align: center;
+	border-top: none;
+}
+
+.extra {
+	background-color: rgba(254, 254, 254, 0.838);
+	height: 3px;
+	padding: 0px 38px;
+	border: 1px solid rgba(226, 223, 223, 0.947);
+	border-top: none;
+}
+
+.item_status {
+	width: 50%;
+}
+
+.item_completed {
+	visibility: hidden;
+}
+.item_completed_1 {
+	visibility: visible;
+}
+.item_completed_1:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}	
+
+.active{
+	border: 1px solid black;
+}
+
+.footer_hidden {
+	display: none;
+}
